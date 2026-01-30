@@ -82,8 +82,7 @@ from retail_sales;
 --how many  unique customers we have?
 select count( distinct customer_id) as total_customers 
 from retail_sales
---how many  unique categories we have?
-            
+--how many  unique categories we have?        
 select count( distinct category)  from retail_sales;
 
 --seeing the category names
@@ -179,6 +178,7 @@ FROM hourly_sale
 GROUP BY shift
 
 --END OF PROJECT--
+
 
 
 
