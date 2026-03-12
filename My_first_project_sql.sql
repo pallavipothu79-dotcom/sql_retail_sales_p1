@@ -145,39 +145,22 @@ SELECT
 FROM retail_sales
 GROUP BY 1, 2
 ) as t1
-WHERE rank = 1
+WHERE rank = 1;
 
 --Q.8 Write a SQL query to find the top 5 customers based on the highest total sales 
 select customer_id,sum(total_sale) as total_sales
 from retail_sales
 group by 1
 order by 2 desc
-limit 5
+limit 5;
 
 --Q.9 Write a SQL query to find the number of unique customers who purchased items from each category.
 select category,count(distinct customer_id) as unique_customers
 from retail_sales
-group by category
-
--- Q.10 Write a SQL query to create each shift and number of orders (Example Morning <=12, Afternoon Between 12 & 17, Evening >17)
- WITH hourly_sale
-AS
-(
-SELECT *,
-    CASE
-        WHEN EXTRACT(HOUR FROM sale_time) < 12 THEN 'Morning'
-        WHEN EXTRACT(HOUR FROM sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
-        ELSE 'Evening'
-    END as shift
-FROM retail_sales
-)
-SELECT 
-    shift,
-    COUNT(*) as total_orders    
-FROM hourly_sale
-GROUP BY shift
+group by category;
 
 --END OF PROJECT--
+
 
 
 
